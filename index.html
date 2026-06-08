@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pooya Valizadeh | GitHub پروفایل شبیه</title>
+  <!-- Font Awesome 6 (Free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0d1117;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+      color: #e6edf3;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* کاملاً چپ‌چین شده و شبیه گیت‌هاب */
+    .github-container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    /* لایه اصلی پروفایل با ساختار دو ستونه؟ اما برای چپ‌چین شدن: همه بلوک‌ها چپ */
+    .profile-main {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.5rem;
+    }
+
+    /* کارت پروفایل (شبیه پروفایل گیت‌هاب سایدبار) */
+    .gh-card {
+      background: #161b22;
+      border-radius: 1rem;
+      border: 1px solid #30363d;
+      padding: 1.2rem 1.5rem;
+      transition: all 0.1s;
+    }
+
+    /* بخش هدر با آواتار و متن چپ‌چین */
+    .profile-header-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .avatar-md {
+      width: 70px;
+      height: 70px;
+      background: #21262d;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #3d444d;
+    }
+
+    .avatar-md i {
+      font-size: 2.6rem;
+      color: #c9d1d9;
+    }
+
+    .name-title h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
+    .name-title .login {
+      font-size: 0.8rem;
+      color: #8b949e;
+    }
+
+    .bio-detail {
+      color: #b1bac4;
+      font-size: 0.85rem;
+      margin: 0.8rem 0;
+      line-height: 1.4;
+      max-width: 85%;
+    }
+
+    /* ردیف نشانگرها */
+    .badge-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 0.5rem;
+    }
+
+    .badge-ghost {
+      background: #21262d;
+      border-radius: 20px;
+      padding: 0.2rem 0.8rem;
+      font-size: 0.7rem;
+      color: #c9d1d9;
+      border: 1px solid #3d444d;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* تب‌ها شبیه نوار گیت‌هاب (بالا) */
+    .tab-nav {
+      display: flex;
+      border-bottom: 1px solid #30363d;
+      background: #0d1117;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #8b949e;
+      cursor: pointer;
+      transition: 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: #e6edf3;
+      border-bottom-color: #e6edf3;
+    }
+
+    .tab-btn:hover:not(.active) {
+      color: #e6edf3;
+      border-bottom-color: #6e7681;
+    }
+
+    /* محتوای تب */
+    .tab-pane {
+      display: none;
+      animation: fade 0.2s;
+    }
+
+    .tab-pane.active-pane {
+      display: block;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(3px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* بخش دونیت (حکایت) */
+    .donation-box {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 1rem;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      transition: 0.1s;
+    }
+
+    .donation-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #2d333b;
+      padding-bottom: 0.5rem;
+    }
+
+    .donation-header i {
+      font-size: 1.5rem;
+      color: #ecb365;
+    }
+
+    .donation-header h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .donation-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #21262d;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      color: #e6edf3;
+      font-size: 0.85rem;
+      border: 1px solid #3d444d;
+      transition: 0.1s;
+    }
+
+    .donation-link:hover {
+      background: #30363d;
+    }
+
+    /* بخش رزومه‌ها با طرح قفسه */
+    .resume-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .resume-item {
+      background: #161b22;
+      border-radius: 0.8rem;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border: 1px solid #30363d;
+    }
+
+    .resume-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .resume-info i {
+      font-size: 1.6rem;
+      color: #7d8590;
+    }
+
+    .resume-text p:first-child {
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .resume-text p:last-child {
+      font-size: 0.7rem;
+      color: #8b949e;
+    }
+
+    .resume-action {
+      background: #21262d;
+      border: 1px solid #3d444d;
+      padding: 0.2rem 0.9rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+      color: #e6edf3;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+
+    .resume-action:hover {
+      background: #30363d;
+    }
+
+    /* بخش تماس و لینک (چپ‌چین) */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      background: #0d1117;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid #30363d;
+      margin-bottom: 0.8rem;
+    }
+
+    .email-copy-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #161b22;
+      padding: 0.2rem 1rem;
+      border-radius: 2rem;
+    }
+
+    .email-copy-group span {
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+
+    .copy-icon {
+      background: none;
+      border: none;
+      color: #8b949e;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .copy-icon:hover {
+      color: #e6edf3;
+    }
+
+    .social-links-group a {
+      background: #21262d;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #c9d1d9;
+      font-size: 1rem;
+      margin-left: 5px;
+      text-decoration: none;
+      border: 1px solid #3d444d;
+      transition: 0.1s;
+    }
+
+    .social-links-group a:hover {
+      background: #30363d;
+    }
+
+    .message-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #21262d;
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: #e6edf3;
+      border: 1px solid #3d444d;
+    }
+
+    .message-button:hover {
+      background: #30363d;
+    }
+
+    /* بخش مهارت‌ها (دونیت) */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #21262d;
+      border-radius: 20px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #e6edf3;
+      border: 1px solid #3d444d;
+    }
+
+    hr {
+      border-color: #30363d;
+      margin: 0.8rem 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #6e7681;
+      margin-top: 2rem;
+      border-top: 1px solid #21262d;
+      padding-top: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="github-container">
+  <!-- بخش اصلی شبیه پروفایل گیتهاب (چپ چین) -->
+  <div class="profile-main">
+    <!-- کارت اطلاعات پایه -->
+    <div class="gh-card">
+      <div class="profile-header-left">
+        <div class="avatar-md">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="name-title">
+          <h1>پویا ولی زاده</h1>
+          <div class="login">@PooyaValizadeh · Data Scientist & ML Engineer</div>
+        </div>
+      </div>
+      <div class="bio-detail">
+        <i class="fas fa-quote-left" style="font-size: 0.7rem; opacity: 0.7;"></i> 
+        متخصص ماشین لرنینگ، طراح مدل‌های پیش‌بینی و توسعه APIهای هوشمند. عاشق حل مسائل دنیای واقعی با پایتون و ابزارهای علم داده.
+      </div>
+      <div class="badge-strip">
+        <div class="badge-ghost"><i class="fas fa-map-marker-alt"></i> زنجان، ایران</div>
+        <div class="badge-ghost"><i class="fas fa-microchip"></i> Machine Learning Engineer</div>
+        <div class="badge-ghost"><i class="fas fa-robot"></i> LLM & AI APIs</div>
+      </div>
+    </div>
+
+    <!-- نوار تب بالا (حکایت، رزومه، مهارت‌ها) -->
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="about-tab"><i class="fas fa-address-card"></i> حکایت</button>
+      <button class="tab-btn" data-tab="skills-tab"><i class="fas fa-code-branch"></i> دونیت · مهارت‌ها</button>
+      <button class="tab-btn" data-tab="resume-tab"><i class="fas fa-folder-open"></i> رزومه‌ها</button>
+    </div>
+
+    <!-- تب حکایت (معرفی کامل و لینک دونیت قهوه) -->
+    <div id="about-tab" class="tab-pane active-pane">
+      <div class="gh-card">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.8rem;">
+          <i class="fas fa-mug-hot"></i> <span style="font-weight: 600;">داستان من</span>
+        </div>
+        <p style="font-size: 0.85rem; line-height: 1.5; color: #c9d1d9;">
+          من پویا ولی زاده، برنامه‌نویس و دیتا ساینتیست هستم. از سال‌ها پیش به دنیای الگوریتم‌های یادگیری ماشین علاقه پیدا کردم و 
+          همیشه سعی کردم دانش خود را با ساخت پروژه‌های واقعی به کار بگیرم. ساخت APIهای هوشمند، تحلیل داده‌های حجیم و بهینه‌سازی 
+          مدل‌های deep learning تخصص اصلی من است. در کنار کار مهندسی، عاشق به اشتراک‌گذاری دانش و حمایت از جامعه متن‌باز هستم.
+        </p>
+        <hr>
+        <!-- بخش حکایت دونیت (لینک coffeebede) -->
+        <div class="donation-box" style="margin: 0.5rem 0 0 0;">
+          <div class="donation-header">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>☕ حمایت از من (دونیت قهوه)</h3>
+          </div>
+          <p style="font-size: 0.8rem; color: #b1bac4; margin-bottom: 1rem;">
+            اگر از مطالب و کارهای من لذت می‌برید، می‌توانید من را با یک قهوه مجازی حمایت کنید. 
+            هرگونه حمایت شما انرژی مضاعفی برای تولید محتوا و توسعه پروژه‌های جدید به من می‌دهد.
+          </p>
+          <a href="https://www.coffeebede.com/PooyaValizadeh" target="_blank" rel="noopener noreferrer" class="donation-link">
+            <i class="fas fa-coffee"></i> قهوه بده به پویا
+            <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- بخش تماس و لینک‌ها (داخل تب حکایت اما می‌تواند عمومی باشد) -->
+      <div class="gh-card" style="margin-top: 1rem;">
+        <div class="contact-row" style="background: transparent; padding: 0;">
+          <div class="email-copy-group">
+            <i class="far fa-envelope"></i>
+            <span id="userEmail">valizadehpa@gmail.com</span>
+            <button class="copy-icon" id="copyEmailBtn" title="کپی ایمیل"><i class="far fa-copy"></i></button>
+            <span id="copyFeedback" style="font-size:0.65rem;"></span>
+          </div>
+          <div class="social-links-group">
+            <a href="https://github.com/PooyaValizadeh" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/pooya-valizadeh-a3571a414/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/PooyaLazuli" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+          </div>
+          <a href="mailto:valizadehpa@gmail.com" class="message-button">
+            <i class="fas fa-paper-plane"></i> پیام مستقیم
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- تب دونیت · مهارت‌ها (همون تکنولوژی‌ها و کتابخانه‌ها) -->
+    <div id="skills-tab" class="tab-pane">
+      <div class="gh-card">
+        <div class="donation-header" style="border-bottom: none;">
+          <i class="fas fa-code-branch"></i>
+          <h3>مهارت‌های تخصصی | Tech Arsenal</h3>
+        </div>
+        <div class="skills-wrapper">
+          <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+          <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+          <span class="skill-tag"><i class="fas fa-chart-line"></i> pandas / numpy</span>
+          <span class="skill-tag"><i class="fas fa-chart-scatter"></i> scikit-learn</span>
+          <span class="skill-tag"><i class="fas fa-microchip"></i> TensorFlow</span>
+          <span class="skill-tag"><i class="fas fa-brain"></i> PyTorch</span>
+          <span class="skill-tag"><i class="fas fa-chart-simple"></i> Matplotlib / Seaborn</span>
+          <span class="skill-tag"><i class="fas fa-cloud"></i> FastAPI / Flask</span>
+          <span class="skill-tag"><i class="fas fa-robot"></i> Hugging Face</span>
+          <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL / MongoDB</span>
+          <span class="skill-tag"><i class="fab fa-git-alt"></i> Git & GitHub Actions</span>
+        </div>
+        <hr>
+        <div style="font-size: 0.75rem; color: #8b949e; margin-top: 0.5rem;">
+          <i class="fas fa-trophy"></i> تمرکز اصلی: طراحی مدل‌های یادگیری ماشین، APIهای هوشمند و استقرار مدل
+        </div>
+      </div>
+    </div>
+
+    <!-- تب رزومه‌ها (قفسه رزومه که از بالا قابل انتخاب است) -->
+    <div id="resume-tab" class="tab-pane">
+      <div class="gh-card">
+        <div class="donation-header">
+          <i class="fas fa-file-alt"></i>
+          <h3>قفسه رزومه‌ها</h3>
+        </div>
+        <div class="resume-grid">
+          <div class="resume-item">
+            <div class="resume-info">
+              <i class="fas fa-file-pdf"></i>
+              <div class="resume-text">
+                <p>رزومه تخصصی · ماشین لرنینگ و علم داده</p>
+                <p>آخرین بروزرسانی: فروردین ۱۴۰۴</p>
+              </div>
+            </div>
+            <a href="#" class="resume-action" id="resumeCvLink">دریافت <i class="fas fa-download"></i></a>
+          </div>
+          <div class="resume-item">
+            <div class="resume-info">
+              <i class="fas fa-microchip"></i>
+              <div class="resume-text">
+                <p>کارنامه پروژه‌های عملی (API هوشمند، مدل‌های PyTorch)</p>
+                <p>شامل مستندات و نمونه کدها</p>
+              </div>
+            </div>
+            <a href="#" class="resume-action" id="projectsPreviewLink">پیش‌نمایش <i class="fas fa-external-link-alt"></i></a>
+          </div>
+          <div class="resume-item">
+            <div class="resume-info">
+              <i class="fas fa-certificate"></i>
+              <div class="resume-text">
+                <p>گواهی‌ها و دوره‌های تخصصی</p>
+                <p>دیتاساینس و یادگیری عمیق</p>
+              </div>
+            </div>
+            <a href="#" class="resume-action" id="certLink">مشاهده <i class="fas fa-eye"></i></a>
+          </div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.7rem; color: #8b949e; background: #0d1117; padding: 0.5rem; border-radius: 0.8rem; text-align: center;">
+          <i class="fas fa-plus-circle"></i> رزومه‌های تکمیلی به‌زودی اضافه می‌شوند. جهت دریافت لطفاً ایمیل بزنید.
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <i class="fab fa-github"></i> طراحی الهام گرفته از GitHub Dark | پویا ولی زاده — متخصص ML & Data Science
+  </footer>
+</div>
+
+<script>
+  // تب‌ها: مدیریت انتخاب حکایت / دونیت / رزومه
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panes = document.querySelectorAll('.tab-pane');
+
+  function switchTab(tabId) {
+    panes.forEach(pane => {
+      pane.classList.remove('active-pane');
+    });
+    const activePane = document.getElementById(tabId);
+    if (activePane) activePane.classList.add('active-pane');
+    
+    tabs.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-tab') === tabId) {
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      if (targetTab) switchTab(targetTab);
+    });
+  });
+
+  // کپی ایمیل با پیام
+  const copyBtn = document.getElementById('copyEmailBtn');
+  const emailSpan = document.getElementById('userEmail');
+  const feedSpan = document.getElementById('copyFeedback');
+  
+  async function copyEmail() {
+    const email = emailSpan.innerText.trim();
+    try {
+      await navigator.clipboard.writeText(email);
+      feedSpan.innerHTML = '<i class="fas fa-check-circle"></i> کپی شد!';
+      const parentDiv = document.querySelector('.email-copy-group');
+      parentDiv.style.backgroundColor = '#2d333b';
+      setTimeout(() => {
+        parentDiv.style.backgroundColor = '';
+      }, 200);
+      setTimeout(() => {
+        feedSpan.innerHTML = '';
+      }, 1800);
+    } catch (err) {
+      feedSpan.innerHTML = '⚠️ دستی کپی کن';
+      setTimeout(() => {
+        feedSpan.innerHTML = '';
+      }, 1500);
+      prompt('کپی ایمیل:', email);
+    }
+  }
+  if (copyBtn) copyBtn.addEventListener('click', copyEmail);
+  
+  // مدیریت رزومه‌ها (فعلاً با alert آگاهی از به‌زودی)
+  const resumeLink = document.getElementById('resumeCvLink');
+  const projectLink = document.getElementById('projectsPreviewLink');
+  const certLink = document.getElementById('certLink');
+  
+  if (resumeLink) {
+    resumeLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📄 رزومه تخصصی به‌زودی در دسترس قرار می‌گیرد. لطفاً از طریق ایمیل درخواست دهید.');
+    });
+  }
+  if (projectLink) {
+    projectLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📁 نمونه پروژه‌های عملی و API های هوشمند بزودی آپلود می‌شود. منتظر باشید!');
+    });
+  }
+  if (certLink) {
+    certLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('🎓 گواهی‌های تخصصی داده کاوی و یادگیری ماشین به زودی نمایش داده خواهند شد.');
+    });
+  }
+
+  // اضافه کردن لینک دونیت در تب حکایت (همان لینکی که کاربر داد)
+  console.log('Profile loaded — full left-aligned GitHub-like style with donation section + coffebede link');
+</script>
+</body>
+</html>
