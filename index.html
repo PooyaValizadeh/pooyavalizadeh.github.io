@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>رزومه - پویا ولی‌زاده</title>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Font (Vazir) -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;700;900&display=swap" rel="stylesheet" />
+    <title>پویا ولی‌زاده | Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
     <style>
         * {
             margin: 0;
@@ -16,8 +14,8 @@
         }
 
         body {
-            font-family: 'Vazir', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Vazirmatn', sans-serif;
+            background: #f0f2f5;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -25,145 +23,132 @@
             padding: 2rem 1rem;
         }
 
-        .resume-card {
+        .container {
             max-width: 1000px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 40px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #e0e0e0;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.5rem 2.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
-        /* Profile Header */
-        .profile-header {
+        /* ===== HEADER ===== */
+        .header {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             gap: 2rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
         .avatar {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: linear-gradient(145deg, #6c5ce7, #a29bfe);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #fff;
-            box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.4);
             flex-shrink: 0;
-            /* اگر عکس واقعی دارید، این بخش را جایگزین کنید */
-            background-image: url('https://via.placeholder.com/130/6c5ce7/ffffff?text=PV');
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
+            border: 3px solid #e8ecf1;
+            background: #eef2f7;
         }
 
-        /* اگر عکس خودتان را دارید، لینک را جایگزین کنید */
         .avatar img {
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
             display: block;
         }
 
-        .title-group h1 {
-            font-size: 2.2rem;
+        .header-text h1 {
+            font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f093fb, #f5576c, #4facfe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.3rem;
+            color: #1a1a2e;
+            margin-bottom: 0.2rem;
         }
 
-        .title-group .subhead {
+        .header-text .title {
             font-size: 1rem;
-            color: #b0b0b0;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            color: #6c5ce7;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
-        .title-group .subhead i {
-            color: #a29bfe;
-            margin-left: 6px;
+        .header-text .bio {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.3rem;
+            line-height: 1.6;
+            max-width: 500px;
         }
 
-        /* Contact & Social */
-        .contact-row {
+        /* ===== CONTACT BAR ===== */
+        .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1rem 1.5rem;
+            gap: 0.8rem 1.8rem;
+            background: #f8f9fa;
+            padding: 0.8rem 1.5rem;
             border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.06);
             margin-bottom: 2rem;
             justify-content: center;
         }
 
-        .contact-row a {
-            color: #c0c0c0;
+        .contact-bar a {
+            color: #444;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             transition: 0.2s;
         }
 
-        .contact-row a:hover {
-            color: #a29bfe;
-            transform: translateY(-2px);
-        }
-
-        .contact-row a i {
-            font-size: 1.2rem;
-            width: 1.8rem;
-            text-align: center;
+        .contact-bar a:hover {
             color: #6c5ce7;
         }
 
-        /* Grid layout */
+        .contact-bar a i {
+            color: #6c5ce7;
+            font-size: 1rem;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        /* ===== GRID ===== */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 2.5rem;
+            margin-top: 1rem;
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 720px) {
             .grid-2 {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.8rem;
             }
-            .profile-header {
+            .header {
                 flex-direction: column;
                 text-align: center;
             }
-            .contact-row {
-                flex-direction: column;
-                align-items: center;
+            .header-text .bio {
+                max-width: 100%;
+            }
+            .contact-bar {
                 border-radius: 30px;
-                padding: 1.2rem;
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
             }
         }
 
-        /* Sections */
+        /* ===== SECTIONS ===== */
         .section-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 1.2rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -171,150 +156,177 @@
 
         .section-title i {
             color: #6c5ce7;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
+            width: 1.6rem;
         }
 
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #e8ecf1, transparent);
+        }
+
+        /* ===== SKILLS ===== */
         .skill-tag {
             display: inline-block;
-            background: rgba(108, 92, 231, 0.15);
-            color: #c8c0ff;
-            padding: 0.4rem 1rem;
+            background: #f0f2f5;
+            color: #333;
+            padding: 0.3rem 1rem;
             border-radius: 30px;
-            font-size: 0.85rem;
-            margin: 0.2rem 0.2rem;
-            border: 1px solid rgba(108, 92, 231, 0.2);
+            font-size: 0.8rem;
+            margin: 0.15rem 0.15rem;
+            border: 1px solid #e8ecf1;
             transition: 0.2s;
+            font-weight: 400;
         }
 
         .skill-tag:hover {
-            background: rgba(108, 92, 231, 0.3);
-            transform: scale(1.02);
+            background: #6c5ce7;
+            color: #fff;
+            border-color: #6c5ce7;
+            transform: translateY(-2px);
         }
 
+        /* ===== EXP ITEMS ===== */
         .exp-item {
             margin-bottom: 1.2rem;
-            border-right: 2px solid rgba(108, 92, 231, 0.3);
             padding-right: 1rem;
+            border-right: 3px solid #6c5ce7;
         }
 
         .exp-item h4 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.2rem;
+            color: #1a1a2e;
+            margin-bottom: 0.15rem;
         }
 
         .exp-item p {
-            font-size: 0.9rem;
-            color: #b8b8b8;
-            line-height: 1.6;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.7;
         }
 
-        .exp-item .badge {
-            display: inline-block;
-            font-size: 0.7rem;
-            background: rgba(108, 92, 231, 0.2);
-            padding: 0.1rem 0.7rem;
-            border-radius: 20px;
-            color: #a29bfe;
-        }
-
-        .divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #6c5ce7, transparent);
-            margin: 1.5rem 0;
-        }
-
+        /* ===== SOCIAL ===== */
         .social-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
 
         .social-links a {
-            color: #ccc;
-            font-size: 1.8rem;
+            color: #666;
+            font-size: 1.6rem;
             transition: 0.2s;
         }
 
         .social-links a:hover {
-            color: #a29bfe;
-            transform: translateY(-3px);
+            color: #6c5ce7;
+            transform: translateY(-2px);
         }
 
+        .link-text {
+            display: block;
+            color: #6c5ce7;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin: 0.2rem 0;
+            transition: 0.2s;
+        }
+
+        .link-text:hover {
+            color: #4a3db8;
+            transform: translateX(-4px);
+        }
+
+        .link-text i {
+            width: 1.4rem;
+        }
+
+        /* ===== DONATE ===== */
         .donate-btn {
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
-            color: #fff;
-            font-weight: 700;
-            font-family: 'Vazir', sans-serif;
-            cursor: pointer;
-            transition: 0.3s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: #fff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .donate-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+            transform: scale(1.04);
+            box-shadow: 0 8px 25px rgba(108, 92, 231, 0.35);
         }
 
-        footer {
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px;
+            background: #e8ecf1;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
             margin-top: 2rem;
             text-align: center;
-            font-size: 0.8rem;
-            color: #666;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #bbb;
+            border-top: 1px solid #f0f2f5;
+            padding-top: 1.2rem;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #1a1a2e;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6c5ce7;
-            border-radius: 10px;
+        /* ===== RESPONSIVE TWEAKS ===== */
+        @media (max-width: 480px) {
+            .header-text h1 {
+                font-size: 1.6rem;
+            }
+            .avatar {
+                width: 90px;
+                height: 90px;
+            }
+            .contact-bar {
+                gap: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .contact-bar a {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="resume-card">
+    <div class="container">
 
         <!-- ===== HEADER ===== -->
-        <div class="profile-header">
+        <div class="header">
             <div class="avatar">
-                <!-- عکس خودتان را اینجا قرار دهید -->
-                <img src="https://github.com/PooyaValizadeh/PooyaValizadeh/blob/main/gifs/pooya.jpg" alt="پویا ولی‌زاده" />
+                <img src="https://github.com/PooyaValizadeh/PooyaValizadeh/blob/main/gifs/pooya.jpg?raw=true" alt="پویا ولی‌زاده" />
             </div>
-            <div class="title-group">
+            <div class="header-text">
                 <h1>پویا ولی‌زاده</h1>
-                <div class="subhead">
-                    <i class="fas fa-brain"></i> Data Scientist · Machine Learning Engineer
-                </div>
-                <div style="margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                    <span class="skill-tag"><i class="fas fa-code"></i> Python</span>
-                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
-                    <span class="skill-tag"><i class="fas fa-cloud"></i> ML/DL</span>
+                <div class="title">Data Scientist · Machine Learning Engineer</div>
+                <div class="bio">
+                    <i class="fas fa-quote-right" style="color:#6c5ce7; font-size:0.8rem; opacity:0.6;"></i>
+                    متخصص در طراحی سیستم‌های پیشنهاد‌دهنده، پیش‌بینی سری‌های زمانی و ساخت ربات‌های هوشمند
                 </div>
             </div>
         </div>
 
         <!-- ===== CONTACT ===== -->
-        <div class="contact-row">
-            <a href="https://t.me/Pooya_Valizadeh" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-            <a href="#" onclick="alert('لطفاً از طریق شبکه‌های اجتماعی ارتباط برقرار کنید')"><i class="fas fa-phone-alt"></i> درخواست ارتباط</a>
+        <div class="contact-bar">
+            <a href="https://t.me/Pooya_Valizadeh" target="_blank"><i class="fab fa-telegram"></i> تلگرام</a>
+            <a href="mailto:pooyavalizadeh@example.com"><i class="fas fa-envelope"></i> ایمیل</a>
+            <a href="#" onclick="alert('لطفاً از طریق شبکه‌های اجتماعی ارتباط برقرار کنید')"><i class="fas fa-phone-alt"></i> تماس</a>
         </div>
 
         <!-- ===== GRID ===== -->
@@ -324,43 +336,44 @@
             <div>
 
                 <!-- Skills -->
-                <div class="section-title"><i class="fas fa-cogs"></i> مهارت‌های فنی</div>
+                <div class="section-title"><i class="fas fa-cogs"></i> مهارت‌ها</div>
                 <div style="margin-bottom: 1.8rem;">
                     <span class="skill-tag">Machine Learning</span>
-                    <span class="skill-tag">Deep Learning (CNN, RNN, LSTM)</span>
+                    <span class="skill-tag">Deep Learning</span>
                     <span class="skill-tag">Scikit-learn</span>
                     <span class="skill-tag">TensorFlow / PyTorch</span>
                     <span class="skill-tag">Recommender Systems</span>
-                    <span class="skill-tag">Time Series Forecasting</span>
+                    <span class="skill-tag">Time Series</span>
                     <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">Telegram Bot (python-telegram-bot)</span>
+                    <span class="skill-tag">Telegram Bot</span>
                     <span class="skill-tag">Bale Bot</span>
-                    <span class="skill-tag">SQL (PostgreSQL, MySQL)</span>
+                    <span class="skill-tag">SQL</span>
                     <span class="skill-tag">Docker / Linux</span>
                     <span class="skill-tag">Git & GitHub</span>
                 </div>
 
-                <!-- What I do -->
-                <div class="section-title"><i class="fas fa-rocket"></i> حوزه‌های تخصصی</div>
+                <!-- Expertise -->
+                <div class="section-title"><i class="fas fa-rocket"></i> تخصص‌ها</div>
+
                 <div class="exp-item">
                     <h4>سیستم‌های پیشنهاد دهنده</h4>
-                    <p>طراحی و پیاده‌سازی موتورهای توصیه‌گر با رویکردهای collaborative filtering، content-based و hybrid.</p>
+                    <p>طراحی موتورهای توصیه‌گر با رویکردهای Collaborative Filtering، Content-Based و Hybrid.</p>
                 </div>
+
                 <div class="exp-item">
                     <h4>پیش‌بینی سری‌های زمانی</h4>
-                    <p>مدل‌سازی و پیش‌بینی داده‌های سری زمانی با استفاده از LSTM، Prophet و روش‌های کلاسیک.</p>
-                </div>
-                <div class="exp-item">
-                    <h4>ربات‌های تلگرام و بله</h4>
-                    <p>ساخت ربات‌های هوشمند با قابلیت‌های پردازش زبان طبیعی، دیتابیس و تعامل با کاربر.</p>
+                    <p>مدل‌سازی با LSTM، Prophet و روش‌های کلاسیک برای داده‌های سری زمانی.</p>
                 </div>
 
-                <!-- Divider -->
+                <div class="exp-item">
+                    <h4>ربات‌های هوشمند</h4>
+                    <p>ساخت ربات‌های تلگرام و بله با قابلیت‌های NLP، دیتابیس و تعامل پیشرفته.</p>
+                </div>
+
                 <div class="divider"></div>
 
-                <!-- Donate / Support -->
                 <a href="https://coffeebede.com/PooyaValizadeh" target="_blank" class="donate-btn">
-                    <i class="fas fa-mug-hot"></i> حمایت مالی (کافی‌بیده)
+                    <i class="fas fa-mug-hot"></i> حمایت مالی
                 </a>
             </div>
 
@@ -368,39 +381,38 @@
             <div>
 
                 <!-- About -->
-                <div class="section-title"><i class="fas fa-user-astronaut"></i> درباره من</div>
-                <p style="line-height: 1.8; color: #d0d0d0; margin-bottom: 1.8rem;">
-                    من پویا ولی‌زاده هستم، برنامه‌نویس و تحلیل‌گر داده با تسلط کامل بر 
-                    <strong>الگوریتم‌های ماشین لرنینگ</strong> و <strong>دیپ لرنینگ</strong>. 
+                <div class="section-title"><i class="fas fa-user"></i> درباره من</div>
+                <p style="font-size:0.9rem; line-height:1.9; color:#555; margin-bottom:1.8rem;">
+                    من <strong>پویا ولی‌زاده</strong> هستم، برنامه‌نویس و تحلیل‌گر داده با تسلط کامل بر 
+                    الگوریتم‌های <strong>ماشین لرنینگ</strong> و <strong>دیپ لرنینگ</strong>.
                     توانایی ساخت سیستم‌های پیشنهاد‌دهنده، سیستم‌های پیش‌بینی، و ربات‌های هوشمند 
                     برای تلگرام و بله را دارم. همواره به دنبال چالش‌های جدید در دنیای داده و هوش مصنوعی هستم.
                 </p>
 
-                <!-- GitHub & Kaggle -->
+                <!-- Online Presence -->
                 <div class="section-title"><i class="fas fa-link"></i> حضور آنلاین</div>
+
                 <div class="social-links">
                     <a href="https://github.com/PooyaValizadeh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.kaggle.com/pooyavalizadeh" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
                     <a href="https://coffeebede.com/PooyaValizadeh" target="_blank" title="کافی‌بیده"><i class="fas fa-mug-hot"></i></a>
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" onclick="alert('https://t.me/Pooya_Valizadeh')" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://t.me/Pooya_Valizadeh" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
                 </div>
 
-                <!-- Quick links -->
-                <div style="margin-top: 1.8rem;">
-                    <a href="https://github.com/PooyaValizadeh" target="_blank" style="color: #a29bfe; text-decoration: none; display: inline-block; margin-left: 1.5rem;">
+                <div style="margin-top: 1.2rem;">
+                    <a href="https://github.com/PooyaValizadeh" target="_blank" class="link-text">
                         <i class="fab fa-github"></i> github.com/PooyaValizadeh
                     </a>
-                    <br>
-                    <a href="https://www.kaggle.com/pooyavalizadeh" target="_blank" style="color: #a29bfe; text-decoration: none; display: inline-block;">
+                    <a href="https://www.kaggle.com/pooyavalizadeh" target="_blank" class="link-text">
                         <i class="fab fa-kaggle"></i> kaggle.com/pooyavalizadeh
                     </a>
                 </div>
 
-                <!-- Technologies I use -->
+                <!-- Tools -->
                 <div style="margin-top: 1.8rem;">
-                    <span style="color: #999; font-size: 0.85rem;">ابزارهای روزمره:</span>
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem;">
+                    <span style="color:#999; font-size:0.8rem;">ابزارهای روزمره</span>
+                    <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.3rem;">
                         <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
                         <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
                         <span class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</span>
@@ -413,9 +425,9 @@
         </div>
 
         <!-- ===== FOOTER ===== -->
-        <footer>
-            <i class="fas fa-code"></i> با عشق به داده و کد · 1405
-        </footer>
+        <div class="footer">
+            <i class="fas fa-code"></i> با عشق به داده و کد · ۱۴۰۴
+        </div>
 
     </div>
 
