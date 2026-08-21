@@ -31,6 +31,36 @@
             padding: 2.5rem 2.5rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* ===== LANGUAGE BUTTON ===== */
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            background: #f0f2f5;
+            border: 2px solid #6c5ce7;
+            color: #6c5ce7;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Vazirmatn', sans-serif;
+            z-index: 10;
+        }
+
+        .lang-btn:hover {
+            background: #6c5ce7;
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        .lang-btn i {
+            margin-left: 6px;
         }
 
         /* ===== HEADER ===== */
@@ -140,6 +170,12 @@
             }
             .container {
                 padding: 1.8rem 1.2rem;
+            }
+            .lang-btn {
+                top: 12px;
+                left: 15px;
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
             }
         }
 
@@ -305,7 +341,12 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id="resumeContainer">
+
+        <!-- ===== LANGUAGE BUTTON ===== -->
+        <button class="lang-btn" id="langToggle">
+            <i class="fas fa-globe"></i> English
+        </button>
 
         <!-- ===== HEADER ===== -->
         <div class="header">
@@ -313,20 +354,20 @@
                 <img src="https://github.com/PooyaValizadeh/PooyaValizadeh/blob/main/gifs/pooya.jpg?raw=true" alt="پویا ولی‌زاده" />
             </div>
             <div class="header-text">
-                <h1>پویا ولی‌زاده</h1>
-                <div class="title">Data Scientist · Machine Learning Engineer · Deep Learning Specialist</div>
-                <div class="bio">
+                <h1 id="name">پویا ولی‌زاده</h1>
+                <div class="title" id="title">Data Scientist · Machine Learning Engineer · Deep Learning Specialist</div>
+                <div class="bio" id="bio">
                     <i class="fas fa-quote-right" style="color:#6c5ce7; font-size:0.8rem; opacity:0.6;"></i>
-                    ۴ سال سابقه در دیتا ساینس | متخصص طراحی سیستم‌های پیشنهاد‌دهنده، مدل‌های دیپ لرنینگ صنعتی و Transformerها | توسعه‌دهنده API و ربات‌های هوشمند
+                    <span id="bioText">۴ سال سابقه در دیتا ساینس | متخصص طراحی سیستم‌های پیشنهاد‌دهنده، مدل‌های دیپ لرنینگ صنعتی و Transformerها | توسعه‌دهنده API و ربات‌های هوشمند</span>
                 </div>
             </div>
         </div>
 
         <!-- ===== CONTACT ===== -->
         <div class="contact-bar">
-            <a href="https://t.me/Pooya_Valizadeh" target="_blank"><i class="fab fa-telegram"></i> تلگرام</a>
-            <a href="mailto:valizadehpa@gmail.com"><i class="fas fa-envelope"></i> ایمیل</a>
-            <a href="#" onclick="alert('لطفاً از طریق شبکه‌های اجتماعی ارتباط برقرار کنید')"><i class="fas fa-phone-alt"></i> تماس</a>
+            <a href="https://t.me/Pooya_Valizadeh" target="_blank"><i class="fab fa-telegram"></i> <span id="contactTelegram">تلگرام</span></a>
+            <a href="mailto:valizadehpa@gmail.com"><i class="fas fa-envelope"></i> <span id="contactEmail">ایمیل</span></a>
+            <a href="#" onclick="alert('لطفاً از طریق شبکه‌های اجتماعی ارتباط برقرار کنید')"><i class="fas fa-phone-alt"></i> <span id="contactPhone">تماس</span></a>
         </div>
 
         <!-- ===== GRID ===== -->
@@ -336,8 +377,8 @@
             <div>
 
                 <!-- Skills -->
-                <div class="section-title"><i class="fas fa-cogs"></i> مهارت‌های فنی</div>
-                <div style="margin-bottom: 1.8rem;">
+                <div class="section-title"><i class="fas fa-cogs"></i> <span id="skillsTitle">مهارت‌های فنی</span></div>
+                <div id="skillsContainer" style="margin-bottom: 1.8rem;">
                     <span class="skill-tag">Machine Learning</span>
                     <span class="skill-tag">Deep Learning</span>
                     <span class="skill-tag">Transformers</span>
@@ -356,27 +397,27 @@
                 </div>
 
                 <!-- Expertise -->
-                <div class="section-title"><i class="fas fa-rocket"></i> حوزه‌های تخصصی</div>
+                <div class="section-title"><i class="fas fa-rocket"></i> <span id="expertiseTitle">حوزه‌های تخصصی</span></div>
 
                 <div class="exp-item">
-                    <h4>سیستم‌های پیشنهاد دهنده</h4>
-                    <p>طراحی و پیاده‌سازی موتورهای توصیه‌گر با رویکردهای Collaborative Filtering، Content-Based، Hybrid و مبتنی بر Transformer.</p>
+                    <h4 id="exp1Title">سیستم‌های پیشنهاد دهنده</h4>
+                    <p id="exp1Desc">طراحی و پیاده‌سازی موتورهای توصیه‌گر با رویکردهای Collaborative Filtering، Content-Based، Hybrid و مبتنی بر Transformer.</p>
                 </div>
 
                 <div class="exp-item">
-                    <h4>مدل‌های دیپ لرنینگ صنعتی</h4>
-                    <p>ساخت و استقرار مدل‌های CNN، RNN، LSTM، و Transformer در محیط‌های تولیدی با تمرکز بر بهینه‌سازی و مقیاس‌پذیری.</p>
+                    <h4 id="exp2Title">مدل‌های دیپ لرنینگ صنعتی</h4>
+                    <p id="exp2Desc">ساخت و استقرار مدل‌های CNN، RNN، LSTM، و Transformer در محیط‌های تولیدی با تمرکز بر بهینه‌سازی و مقیاس‌پذیری.</p>
                 </div>
 
                 <div class="exp-item">
-                    <h4>API و ربات‌های هوشمند</h4>
-                    <p>توسعه APIهای قدرتمند با FastAPI و ساخت ربات‌های تلگرام با قابلیت‌های پیشرفته، پردازش زبان طبیعی و یکپارچه‌سازی با مدل‌های ML.</p>
+                    <h4 id="exp3Title">API و ربات‌های هوشمند</h4>
+                    <p id="exp3Desc">توسعه APIهای قدرتمند با FastAPI و ساخت ربات‌های تلگرام با قابلیت‌های پیشرفته، پردازش زبان طبیعی و یکپارچه‌سازی با مدل‌های ML.</p>
                 </div>
 
                 <div class="divider"></div>
 
-                <a href="https://coffeebede.com/PooyaValizadeh" target="_blank" class="donate-btn">
-                    <i class="fas fa-mug-hot"></i> حمایت مالی
+                <a href="https://coffeebede.com/PooyaValizadeh" target="_blank" class="donate-btn" id="donateBtn">
+                    <i class="fas fa-mug-hot"></i> <span id="donateText">حمایت مالی</span>
                 </a>
             </div>
 
@@ -384,8 +425,8 @@
             <div>
 
                 <!-- About -->
-                <div class="section-title"><i class="fas fa-user"></i> درباره من</div>
-                <p style="font-size:0.9rem; line-height:1.9; color:#555; margin-bottom:1.8rem;">
+                <div class="section-title"><i class="fas fa-user"></i> <span id="aboutTitle">درباره من</span></div>
+                <p id="aboutText" style="font-size:0.9rem; line-height:1.9; color:#555; margin-bottom:1.8rem;">
                     من <strong>پویا ولی‌زاده</strong> هستم، <strong>دیتا ساینتیست</strong> با ۴ سال سابقه حرفه‌ای در حوزه 
                     <strong>مهندسی ماشین لرنینگ</strong> و <strong>دیپ لرنینگ</strong>. 
                     تخصص من در طراحی و پیاده‌سازی <strong>سیستم‌های پیشنهاد‌دهنده</strong>، مدل‌های <strong>Transformer</strong>، 
@@ -396,7 +437,7 @@
                 </p>
 
                 <!-- Online Presence -->
-                <div class="section-title"><i class="fas fa-link"></i> حضور آنلاین</div>
+                <div class="section-title"><i class="fas fa-link"></i> <span id="onlineTitle">حضور آنلاین</span></div>
 
                 <div class="social-links">
                     <a href="https://github.com/PooyaValizadeh" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
@@ -408,20 +449,20 @@
                 </div>
 
                 <div style="margin-top: 1.2rem;">
-                    <a href="https://github.com/PooyaValizadeh" target="_blank" class="link-text">
+                    <a href="https://github.com/PooyaValizadeh" target="_blank" class="link-text" id="githubLink">
                         <i class="fab fa-github"></i> github.com/PooyaValizadeh
                     </a>
-                    <a href="https://www.kaggle.com/pooyavalizadeh" target="_blank" class="link-text">
+                    <a href="https://www.kaggle.com/pooyavalizadeh" target="_blank" class="link-text" id="kaggleLink">
                         <i class="fab fa-kaggle"></i> kaggle.com/pooyavalizadeh
                     </a>
-                    <a href="https://huggingface.co/PooyaValizadeh" target="_blank" class="link-text">
+                    <a href="https://huggingface.co/PooyaValizadeh" target="_blank" class="link-text" id="huggingfaceLink">
                         <i class="fas fa-robot"></i> huggingface.co/PooyaValizadeh
                     </a>
                 </div>
 
                 <!-- Tools -->
                 <div style="margin-top: 1.8rem;">
-                    <span style="color:#999; font-size:0.8rem;">ابزارهای روزمره</span>
+                    <span id="toolsLabel" style="color:#999; font-size:0.8rem;">ابزارهای روزمره</span>
                     <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.3rem;">
                         <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
                         <span class="skill-tag"><i class="fas fa-brain"></i> TensorFlow</span>
@@ -435,11 +476,120 @@
         </div>
 
         <!-- ===== FOOTER ===== -->
-        <div class="footer">
+        <div class="footer" id="footer">
             <i class="fas fa-code"></i> valizadeh|2026
         </div>
 
     </div>
+
+    <script>
+        // ===== زبان‌ها =====
+        const langData = {
+            fa: {
+                name: 'پویا ولی‌زاده',
+                title: 'Data Scientist · Machine Learning Engineer · Deep Learning Specialist',
+                bioText: '۴ سال سابقه در دیتا ساینس | متخصص طراحی سیستم‌های پیشنهاد‌دهنده، مدل‌های دیپ لرنینگ صنعتی و Transformerها | توسعه‌دهنده API و ربات‌های هوشمند',
+                contactTelegram: 'تلگرام',
+                contactEmail: 'ایمیل',
+                contactPhone: 'تماس',
+                skillsTitle: 'مهارت‌های فنی',
+                expertiseTitle: 'حوزه‌های تخصصی',
+                exp1Title: 'سیستم‌های پیشنهاد دهنده',
+                exp1Desc: 'طراحی و پیاده‌سازی موتورهای توصیه‌گر با رویکردهای Collaborative Filtering، Content-Based، Hybrid و مبتنی بر Transformer.',
+                exp2Title: 'مدل‌های دیپ لرنینگ صنعتی',
+                exp2Desc: 'ساخت و استقرار مدل‌های CNN، RNN، LSTM، و Transformer در محیط‌های تولیدی با تمرکز بر بهینه‌سازی و مقیاس‌پذیری.',
+                exp3Title: 'API و ربات‌های هوشمند',
+                exp3Desc: 'توسعه APIهای قدرتمند با FastAPI و ساخت ربات‌های تلگرام با قابلیت‌های پیشرفته، پردازش زبان طبیعی و یکپارچه‌سازی با مدل‌های ML.',
+                donateText: 'حمایت مالی',
+                aboutTitle: 'درباره من',
+                aboutText: 'من <strong>پویا ولی‌زاده</strong> هستم، <strong>دیتا ساینتیست</strong> با ۴ سال سابقه حرفه‌ای در حوزه <strong>مهندسی ماشین لرنینگ</strong> و <strong>دیپ لرنینگ</strong>. تخصص من در طراحی و پیاده‌سازی <strong>سیستم‌های پیشنهاد‌دهنده</strong>، مدل‌های <strong>Transformer</strong>، و <strong>مدل‌های صنعتی</strong> برای پیش‌بینی و تحلیل داده‌های پیچیده است. همچنین در پلتفرم‌های <strong>Hugging Face</strong>، <strong>Kaggle</strong> و <strong>GitHub</strong> فعالیت مستمر دارم و همواره به دنبال چالش‌های جدید و پروژه‌های نوآورانه هستم. توانایی ساخت <strong>APIهای قدرتمند</strong> و <strong>ربات‌های هوشمند</strong> با قابلیت یکپارچه‌سازی با مدل‌های ML را دارم.',
+                onlineTitle: 'حضور آنلاین',
+                toolsLabel: 'ابزارهای روزمره',
+                footerText: 'valizadeh|2026',
+                langBtn: 'English',
+                langIcon: 'fa-globe'
+            },
+            en: {
+                name: 'Pooya Valizadeh',
+                title: 'Data Scientist · Machine Learning Engineer · Deep Learning Specialist',
+                bioText: '4 years experience in Data Science | Expert in Recommender Systems, Industrial Deep Learning Models & Transformers | API & Smart Bot Developer',
+                contactTelegram: 'Telegram',
+                contactEmail: 'Email',
+                contactPhone: 'Contact',
+                skillsTitle: 'Technical Skills',
+                expertiseTitle: 'Areas of Expertise',
+                exp1Title: 'Recommender Systems',
+                exp1Desc: 'Design and implementation of recommendation engines using Collaborative Filtering, Content-Based, Hybrid, and Transformer-based approaches.',
+                exp2Title: 'Industrial Deep Learning',
+                exp2Desc: 'Building and deploying CNN, RNN, LSTM, and Transformer models in production environments with a focus on optimization and scalability.',
+                exp3Title: 'API & Smart Bots',
+                exp3Desc: 'Developing powerful APIs with FastAPI and building Telegram bots with advanced NLP capabilities, database integration, and ML model integration.',
+                donateText: 'Support',
+                aboutTitle: 'About Me',
+                aboutText: 'I am <strong>Pooya Valizadeh</strong>, a <strong>Data Scientist</strong> with 4 years of professional experience in <strong>Machine Learning Engineering</strong> and <strong>Deep Learning</strong>. My expertise lies in designing and implementing <strong>Recommender Systems</strong>, <strong>Transformer</strong> models, and <strong>Industrial Models</strong> for prediction and complex data analysis. I actively contribute to <strong>Hugging Face</strong>, <strong>Kaggle</strong>, and <strong>GitHub</strong>, and I\'m always looking for new challenges and innovative projects. I have the ability to build <strong>powerful APIs</strong> and <strong>smart bots</strong> with ML model integration.',
+                onlineTitle: 'Online Presence',
+                toolsLabel: 'Daily Tools',
+                footerText: 'valizadeh|2026',
+                langBtn: 'فارسی',
+                langIcon: 'fa-flag'
+            }
+        };
+
+        let currentLang = 'fa';
+
+        // ===== تابع تغییر زبان =====
+        function toggleLanguage() {
+            const newLang = currentLang === 'fa' ? 'en' : 'fa';
+            currentLang = newLang;
+            const data = langData[newLang];
+
+            // تغییر متن دکمه
+            const btn = document.getElementById('langToggle');
+            btn.innerHTML = `<i class="fas ${data.langIcon}"></i> ${data.langBtn}`;
+
+            // تغییر جهت صفحه (RTL/LTR)
+            const container = document.getElementById('resumeContainer');
+            if (newLang === 'en') {
+                document.dir = 'ltr';
+                document.documentElement.lang = 'en';
+                document.body.style.fontFamily = "'Vazirmatn', sans-serif";
+                container.style.textAlign = 'left';
+            } else {
+                document.dir = 'rtl';
+                document.documentElement.lang = 'fa';
+                document.body.style.fontFamily = "'Vazirmatn', sans-serif";
+                container.style.textAlign = 'right';
+            }
+
+            // به‌روزرسانی تمام متن‌ها
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('title').textContent = data.title;
+            document.getElementById('bioText').textContent = data.bioText;
+            document.getElementById('contactTelegram').textContent = data.contactTelegram;
+            document.getElementById('contactEmail').textContent = data.contactEmail;
+            document.getElementById('contactPhone').textContent = data.contactPhone;
+            document.getElementById('skillsTitle').textContent = data.skillsTitle;
+            document.getElementById('expertiseTitle').textContent = data.expertiseTitle;
+            document.getElementById('exp1Title').textContent = data.exp1Title;
+            document.getElementById('exp1Desc').textContent = data.exp1Desc;
+            document.getElementById('exp2Title').textContent = data.exp2Title;
+            document.getElementById('exp2Desc').textContent = data.exp2Desc;
+            document.getElementById('exp3Title').textContent = data.exp3Title;
+            document.getElementById('exp3Desc').textContent = data.exp3Desc;
+            document.getElementById('donateText').textContent = data.donateText;
+            document.getElementById('aboutTitle').textContent = data.aboutTitle;
+            document.getElementById('aboutText').innerHTML = data.aboutText;
+            document.getElementById('onlineTitle').textContent = data.onlineTitle;
+            document.getElementById('toolsLabel').textContent = data.toolsLabel;
+            document.getElementById('footer').innerHTML = `<i class="fas fa-code"></i> ${data.footerText}`;
+
+            // بروزرسانی لینک‌ها بدون تغییر متن
+            // (لینک‌ها ثابت هستند)
+        }
+
+        // ===== رویداد کلیک روی دکمه =====
+        document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+    </script>
 
 </body>
 </html>
